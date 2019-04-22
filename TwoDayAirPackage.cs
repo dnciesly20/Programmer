@@ -1,26 +1,21 @@
 ﻿// Program 1A
-// CIS 200-01
-// Fall 2018
-// Due: 9/24/2018
+// CIS 200-01/76
+// Fall 2017
+// Due: 9/25/2017
 // By: Andrew L. Wright (students use Grading ID)
 
 // File: TwoDayAirPackage.cs
 // The TwoDayAirPackage class is a concrete derived class from AirPackage. It adds
 // a delivery type.
-// Updated - Solution now validates the DeliveryType property since ints can be cast
-//           as enums, even when they don't appear in the set
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-[Serializable]
 
 public class TwoDayAirPackage : AirPackage
 {
     public enum Delivery { Early, Saver } // Delivery types
-
-    private Delivery _deliveryType; // TDAP's delivery type (Early or Saver)
 
     // Precondition:  pLength > 0, pWidth > 0, pHeight > 0,
     //                pWeight > 0
@@ -38,23 +33,12 @@ public class TwoDayAirPackage : AirPackage
     {
         // Precondition:  None
         // Postcondition: The two day air package's delivery type has been returned
-        get
-        {
-            return _deliveryType;
-        }
+        get;
 
-        // Precondition:  value must be Early or Saver
+        // Precondition:  None
         // Postcondition: The two day air package's delivery type has been set to the
         //                specified value
-        set
-        {
-            if (value == Delivery.Early || value == Delivery.Saver)
-                _deliveryType = value;
-            else
-                throw new ArgumentOutOfRangeException("DeliveryType", value,
-                    "DeliveryType must be Early or Saver");
-
-        }
+        set;
     }
 
     // Precondition:  None

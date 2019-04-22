@@ -1,7 +1,7 @@
 ﻿// Program 1A
-// CIS 200-01
-// Fall 2018
-// Due: 9/24/2018
+// CIS 200-01/76
+// Fall 2017
+// Due: 9/25/2017
 // By: Andrew L. Wright (students use Grading ID)
 
 // File: NextDayAirPackage.cs
@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-[Serializable]
 
 public class NextDayAirPackage : AirPackage
 {

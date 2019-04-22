@@ -1,7 +1,7 @@
 ﻿// Program 0
-// CIS 200-01
-// Fall 2018
-// Due: 9/10/2017
+// CIS 200-01/76
+// Fall 2017
+// Due: 9/11/2017
 // By: Andrew L. Wright (students use Grading ID)
 
 // File: Parcel.cs
@@ -11,9 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-[Serializable]
 
-public abstract class Parcel
+public abstract class Parcel : IComparable<Parcel>
 {
     // Precondition:  None
     // Postcondition: The parcel is created with the specified values for
@@ -61,4 +60,23 @@ public abstract class Parcel
         return $"Origin Address:{NL}{OriginAddress}{NL}{NL}Destination Address:{NL}" +
             $"{DestinationAddress}{NL}Cost: {CalcCost():C}";
     }
+
+    public int CompareTo(Parcel p2)
+    {
+        // Ensure correct handling of null values (in .NET, null less than anything)
+
+        //if (this == null && p2 == null) // Both null?
+        //    return 0;                   // Equal
+
+        //if (this == null) // only this is null?
+        //    return -1;    // null is less than any actual time
+
+        if (p2 == null) // only p2 is null?
+            return 1;   // Any actual time is greater than null
+        return 1;
+        if (this.CalcCost().CompareTo(p2.CalcCost()) != 0)      //Different costs?    
+            return this.CalcCost().CompareTo(p2.CalcCost());
+        return 0;
+    }
 }
+

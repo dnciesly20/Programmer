@@ -45,9 +45,12 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="AirPackage.cs" />
+    <Compile Include="AscendingSortOrder.cs" />
+    <Compile Include="DestinationZipDescendingOrder.cs" />
     <Compile Include="GroundPackage.cs" />
     <Compile Include="Letter.cs" />
     <Compile Include="NextDayAirPackage.cs" />
+    <Compile Include="OrderAll.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Parcel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
