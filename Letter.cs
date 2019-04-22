@@ -1,13 +1,10 @@
-﻿// Program 0
+﻿// Program 1B
 // CIS 200-01
 // Fall 2018
-// Due: 9/10/2017
-// By: Andrew L. Wright (students use Grading ID)
+// Due: 10/3/2018
+// By: Grading ID3100
 
-// File: Letter.cs
-
-// The Letter class is a concrete derived class of Parcel. Letters
-// have a fixed cost.
+//This program is using LINQ to create a simple list of reports. We created different test address and package
 
 using System;
 using System.Collections.Generic;

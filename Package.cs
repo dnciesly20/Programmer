@@ -1,118 +1,146 @@
-﻿using System;
+﻿// Program 1B
+// CIS 200-01
+// Fall 2018
+// Due: 9/24/2018
+// By: Andrew L. Wright (students use Grading ID)
+
+// File: Package.cs
+// The Package class is an abstract derived class from Parcel. It adds
+// dimensions and weight.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-//Creating an Abstract PAckage class that is derived from the Parcel class
 public abstract class Package : Parcel
 {
-    private double _thelength;
-    private double _thewidth;
-    private double _theheight;
-    private double _theweight;
+    private double _length; // Length of package in inches
+    private double _width;  // Width of package in inches
+    private double _height; // Height of package in inches
+    private double _weight; // Weight of package in pounds
 
-    //Created specific values for all the dimesnions and fee
-    public Package(Address originAddress, Address destAddress, double tLength, double tWidth, double tHeight, double tWeight)
+    // Precondition:  pLength > 0, pWidth > 0, pHeight > 0,
+    //                pWeight > 0
+    // Postcondition: The package is created with the specified values for
+    //                origin address, destination address, length, width,
+    //                height, and weight
+    public Package(Address originAddress, Address destAddress,
+        double pLength, double pWidth, double pHeight, double pWeight)
         : base(originAddress, destAddress)
-
     {
-        Length = tLength;
-        Width = tWidth;
-        Height = tHeight;
-        Weight = tWeight;
-
+        Length = pLength;
+        Width = pWidth;
+        Height = pHeight;
+        Weight = pWeight;
     }
 
-    //Creating a property that gets the value of the Length
     public double Length
     {
+        // Precondition:  None
+        // Postcondition: The package's length has been returned
         get
         {
-            return _thelength;
+            return _length;
         }
 
-        //Creating a property that sets the value of the Length
+        // Precondition:  value > 0
+        // Postcondition: The package's length has been set to the
+        //                specified value
         set
         {
             if (value > 0)
-                _thelength = value;
+                _length = value;
             else
-                throw new ArgumentOutOfRangeException("Length", value, "The Length has to have a value greater than 0");
+                throw new ArgumentOutOfRangeException("Length", value,
+                    "Length must be > 0");
         }
     }
 
-    //Creasting a property that gets the vale of the Width
     public double Width
     {
+        // Precondition:  None
+        // Postcondition: The package's width has been returned
         get
         {
-            return _thewidth;
+            return _width;
         }
 
-        //Creating a property that sets the value of the Width
+        // Precondition:  value > 0
+        // Postcondition: The package's width has been set to the
+        //                specified value
         set
         {
             if (value > 0)
-                _thewidth = value;
+                _width = value;
             else
-                throw new ArgumentOutOfRangeException("Width", value, "The Width has to have a value greater than 0");
+                throw new ArgumentOutOfRangeException("Width", value,
+                    "Width must be > 0");
         }
     }
 
-    //Creating a property that gets the value of the Height
     public double Height
     {
+        // Precondition:  None
+        // Postcondition: The package's height has been returned
         get
         {
-            return _theheight;
+            return _height;
         }
 
-        //Creating a property thats sets the value of the Height
+        // Precondition:  value > 0
+        // Postcondition: The package's height has been set to the
+        //                specified value
         set
         {
             if (value > 0)
-                _theheight = value;
+                _height = value;
             else
-                throw new ArgumentOutOfRangeException("Height", value, "The Height has to have a value greater than 0");
+                throw new ArgumentOutOfRangeException("Height", value,
+                    "Height must be > 0");
+        }
+    }
+
+    public double Weight
+    {
+        // Precondition:  None
+        // Postcondition: The package's weight has been returned
+        get
+        {
+            return _weight;
+        }
+
+        // Precondition:  value > 0
+        // Postcondition: The package's weight has been set to the
+        //                specified value
+        set
+        {
+            if (value > 0)
+                _weight = value;
+            else
+                throw new ArgumentOutOfRangeException("Weight", value,
+                    "Weight must be > 0");
         }
     }
     
-    //Creating a property that gets the value of the weight
-    public double Weight
+    // Helper Property
+    protected double TotalDimension
     {
-        get
-        {
-            return _theweight;
-        }
-        
-        //Creating a property that sets the value of the weight
-        set
-        {
-            if (value > 0)
-                _theweight = value;
-            else
-                throw new ArgumentOutOfRangeException("Weight", value, "The Weight has to have a value greater than 0");
-        }
-    }
-
-    //Creating a property that gets the overall dimensions of the object
-    protected double OverallCapacity
-    {
+        // Precondition:  None
+        // Postcondition: The package's (Length + Width + Height) is returned
         get
         {
             return (Length + Width + Height);
-        }       
+        }
     }
-    
-    //Create a too string mehtod to display our final  information
+
+    // Precondition:  None
+    // Postcondition: A String with the package's data has been returned
     public override string ToString()
-    
     {
-        string NL = Environment.NewLine; 
+        string NL = Environment.NewLine; // Newline shorthand
 
         return $"Package{NL}{base.ToString()}{NL}Length: {Length:N1}{NL}Width: {Width:N1}{NL}" +
             $"Height: {Height:N1}{NL}Weight: {Weight:N1}";
     }
 }
-
