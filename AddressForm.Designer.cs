@@ -28,144 +28,187 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.addressoneLabel = new System.Windows.Forms.Label();
-            this.addresstwoLabel = new System.Windows.Forms.Label();
-            this.cityLabel = new System.Windows.Forms.Label();
-            this.stateLabel = new System.Windows.Forms.Label();
-            this.zipcodeLabel = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.nameTextbox = new System.Windows.Forms.TextBox();
-            this.addressOneTextbox = new System.Windows.Forms.TextBox();
-            this.addressTwotextbox = new System.Windows.Forms.TextBox();
-            this.cityTextbox = new System.Windows.Forms.TextBox();
-            this.zipcodeTextBox = new System.Windows.Forms.TextBox();
-            this.stateComboBox = new System.Windows.Forms.ComboBox();
+            this.components = new System.ComponentModel.Container();
+            this.nameLbl = new System.Windows.Forms.Label();
+            this.address1Lbl = new System.Windows.Forms.Label();
+            this.cityLbl = new System.Windows.Forms.Label();
+            this.stateLbl = new System.Windows.Forms.Label();
+            this.zipLbl = new System.Windows.Forms.Label();
+            this.nameTxt = new System.Windows.Forms.TextBox();
+            this.address1Txt = new System.Windows.Forms.TextBox();
+            this.address2Txt = new System.Windows.Forms.TextBox();
+            this.cityTxt = new System.Windows.Forms.TextBox();
+            this.stateCbo = new System.Windows.Forms.ComboBox();
+            this.zipTxt = new System.Windows.Forms.TextBox();
+            this.okBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // nameLabel
+            // nameLbl
             // 
-            this.nameLabel.Location = new System.Drawing.Point(78, 43);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(100, 23);
-            this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Name:";
+            this.nameLbl.AutoSize = true;
+            this.nameLbl.Location = new System.Drawing.Point(39, 14);
+            this.nameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nameLbl.Name = "nameLbl";
+            this.nameLbl.Size = new System.Drawing.Size(55, 20);
+            this.nameLbl.TabIndex = 0;
+            this.nameLbl.Text = "Name:";
             // 
-            // addressoneLabel
+            // address1Lbl
             // 
-            this.addressoneLabel.Location = new System.Drawing.Point(78, 106);
-            this.addressoneLabel.Name = "addressoneLabel";
-            this.addressoneLabel.Size = new System.Drawing.Size(100, 23);
-            this.addressoneLabel.TabIndex = 1;
-            this.addressoneLabel.Text = "Address1:";
+            this.address1Lbl.AutoSize = true;
+            this.address1Lbl.Location = new System.Drawing.Point(24, 52);
+            this.address1Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.address1Lbl.Name = "address1Lbl";
+            this.address1Lbl.Size = new System.Drawing.Size(72, 20);
+            this.address1Lbl.TabIndex = 1;
+            this.address1Lbl.Text = "Address:";
             // 
-            // addresstwoLabel
+            // cityLbl
             // 
-            this.addresstwoLabel.Location = new System.Drawing.Point(78, 168);
-            this.addresstwoLabel.Name = "addresstwoLabel";
-            this.addresstwoLabel.Size = new System.Drawing.Size(100, 23);
-            this.addresstwoLabel.TabIndex = 2;
-            this.addresstwoLabel.Text = "Addess2:";
+            this.cityLbl.AutoSize = true;
+            this.cityLbl.Location = new System.Drawing.Point(56, 135);
+            this.cityLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cityLbl.Name = "cityLbl";
+            this.cityLbl.Size = new System.Drawing.Size(39, 20);
+            this.cityLbl.TabIndex = 2;
+            this.cityLbl.Text = "City:";
             // 
-            // cityLabel
+            // stateLbl
             // 
-            this.cityLabel.Location = new System.Drawing.Point(78, 237);
-            this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(100, 23);
-            this.cityLabel.TabIndex = 3;
-            this.cityLabel.Text = "City:";
+            this.stateLbl.AutoSize = true;
+            this.stateLbl.Location = new System.Drawing.Point(44, 169);
+            this.stateLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.stateLbl.Name = "stateLbl";
+            this.stateLbl.Size = new System.Drawing.Size(52, 20);
+            this.stateLbl.TabIndex = 3;
+            this.stateLbl.Text = "State:";
             // 
-            // stateLabel
+            // zipLbl
             // 
-            this.stateLabel.Location = new System.Drawing.Point(78, 297);
-            this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(100, 23);
-            this.stateLabel.TabIndex = 4;
-            this.stateLabel.Text = "State:";
+            this.zipLbl.AutoSize = true;
+            this.zipLbl.Location = new System.Drawing.Point(58, 206);
+            this.zipLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.zipLbl.Name = "zipLbl";
+            this.zipLbl.Size = new System.Drawing.Size(35, 20);
+            this.zipLbl.TabIndex = 4;
+            this.zipLbl.Text = "Zip:";
             // 
-            // zipcodeLabel
+            // nameTxt
             // 
-            this.zipcodeLabel.Location = new System.Drawing.Point(78, 365);
-            this.zipcodeLabel.Name = "zipcodeLabel";
-            this.zipcodeLabel.Size = new System.Drawing.Size(100, 23);
-            this.zipcodeLabel.TabIndex = 5;
-            this.zipcodeLabel.Text = "ZipCode:";
+            this.nameTxt.Location = new System.Drawing.Point(105, 9);
+            this.nameTxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nameTxt.Name = "nameTxt";
+            this.nameTxt.Size = new System.Drawing.Size(148, 26);
+            this.nameTxt.TabIndex = 5;
+            this.nameTxt.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextFields_Validating);
+            this.nameTxt.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // label8
+            // address1Txt
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(482, 300);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 20);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "label8";
+            this.address1Txt.Location = new System.Drawing.Point(105, 48);
+            this.address1Txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.address1Txt.Name = "address1Txt";
+            this.address1Txt.Size = new System.Drawing.Size(148, 26);
+            this.address1Txt.TabIndex = 6;
+            this.address1Txt.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextFields_Validating);
+            this.address1Txt.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // nameTextbox
+            // address2Txt
             // 
-            this.nameTextbox.Location = new System.Drawing.Point(267, 40);
-            this.nameTextbox.Name = "nameTextbox";
-            this.nameTextbox.Size = new System.Drawing.Size(116, 26);
-            this.nameTextbox.TabIndex = 8;
+            this.address2Txt.Location = new System.Drawing.Point(105, 88);
+            this.address2Txt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.address2Txt.Name = "address2Txt";
+            this.address2Txt.Size = new System.Drawing.Size(148, 26);
+            this.address2Txt.TabIndex = 7;
             // 
-            // addressOneTextbox
+            // cityTxt
             // 
-            this.addressOneTextbox.Location = new System.Drawing.Point(267, 103);
-            this.addressOneTextbox.Name = "addressOneTextbox";
-            this.addressOneTextbox.Size = new System.Drawing.Size(116, 26);
-            this.addressOneTextbox.TabIndex = 9;
+            this.cityTxt.Location = new System.Drawing.Point(105, 131);
+            this.cityTxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cityTxt.Name = "cityTxt";
+            this.cityTxt.Size = new System.Drawing.Size(148, 26);
+            this.cityTxt.TabIndex = 8;
+            this.cityTxt.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextFields_Validating);
+            this.cityTxt.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // addressTwotextbox
+            // stateCbo
             // 
-            this.addressTwotextbox.Location = new System.Drawing.Point(267, 165);
-            this.addressTwotextbox.Name = "addressTwotextbox";
-            this.addressTwotextbox.Size = new System.Drawing.Size(116, 26);
-            this.addressTwotextbox.TabIndex = 10;
+            this.stateCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stateCbo.FormattingEnabled = true;
+            this.stateCbo.Location = new System.Drawing.Point(105, 165);
+            this.stateCbo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.stateCbo.Name = "stateCbo";
+            this.stateCbo.Size = new System.Drawing.Size(148, 28);
+            this.stateCbo.TabIndex = 9;
+            this.stateCbo.Validating += new System.ComponentModel.CancelEventHandler(this.stateCbo_Validating);
+            this.stateCbo.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // cityTextbox
+            // zipTxt
             // 
-            this.cityTextbox.Location = new System.Drawing.Point(267, 234);
-            this.cityTextbox.Name = "cityTextbox";
-            this.cityTextbox.Size = new System.Drawing.Size(116, 26);
-            this.cityTextbox.TabIndex = 11;
+            this.zipTxt.Location = new System.Drawing.Point(105, 202);
+            this.zipTxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.zipTxt.Name = "zipTxt";
+            this.zipTxt.Size = new System.Drawing.Size(148, 26);
+            this.zipTxt.TabIndex = 10;
+            this.zipTxt.Validating += new System.ComponentModel.CancelEventHandler(this.zipTxt_Validating);
+            this.zipTxt.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // zipcodeTextBox
+            // okBtn
             // 
-            this.zipcodeTextBox.Location = new System.Drawing.Point(267, 365);
-            this.zipcodeTextBox.Name = "zipcodeTextBox";
-            this.zipcodeTextBox.Size = new System.Drawing.Size(116, 26);
-            this.zipcodeTextBox.TabIndex = 13;
-            this.zipcodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.zipcodeTextBox_Validating);
+            this.okBtn.Location = new System.Drawing.Point(20, 248);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.okBtn.Name = "okBtn";
+            this.okBtn.Size = new System.Drawing.Size(112, 35);
+            this.okBtn.TabIndex = 11;
+            this.okBtn.Text = "OK";
+            this.okBtn.UseVisualStyleBackColor = true;
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
-            // stateComboBox
+            // cancelBtn
             // 
-            this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(267, 292);
-            this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(116, 28);
-            this.stateComboBox.TabIndex = 14;
-            this.stateComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.stateComboBox_Validating);
+            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelBtn.Location = new System.Drawing.Point(142, 248);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(112, 35);
+            this.cancelBtn.TabIndex = 12;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cancelBtn_MouseDown);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // AddressForm
             // 
+            this.AcceptButton = this.okBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 450);
-            this.Controls.Add(this.stateComboBox);
-            this.Controls.Add(this.zipcodeTextBox);
-            this.Controls.Add(this.cityTextbox);
-            this.Controls.Add(this.addressTwotextbox);
-            this.Controls.Add(this.addressOneTextbox);
-            this.Controls.Add(this.nameTextbox);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.zipcodeLabel);
-            this.Controls.Add(this.stateLabel);
-            this.Controls.Add(this.cityLabel);
-            this.Controls.Add(this.addresstwoLabel);
-            this.Controls.Add(this.addressoneLabel);
-            this.Controls.Add(this.nameLabel);
+            this.CancelButton = this.cancelBtn;
+            this.ClientSize = new System.Drawing.Size(291, 305);
+            this.Controls.Add(this.cancelBtn);
+            this.Controls.Add(this.okBtn);
+            this.Controls.Add(this.zipTxt);
+            this.Controls.Add(this.stateCbo);
+            this.Controls.Add(this.cityTxt);
+            this.Controls.Add(this.address2Txt);
+            this.Controls.Add(this.address1Txt);
+            this.Controls.Add(this.nameTxt);
+            this.Controls.Add(this.zipLbl);
+            this.Controls.Add(this.stateLbl);
+            this.Controls.Add(this.cityLbl);
+            this.Controls.Add(this.address1Lbl);
+            this.Controls.Add(this.nameLbl);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddressForm";
-            this.Text = "AddressForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Address";
             this.Load += new System.EventHandler(this.AddressForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,18 +216,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label addressoneLabel;
-        private System.Windows.Forms.Label addresstwoLabel;
-        private System.Windows.Forms.Label cityLabel;
-        private System.Windows.Forms.Label stateLabel;
-        private System.Windows.Forms.Label zipcodeLabel;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox nameTextbox;
-        private System.Windows.Forms.TextBox addressOneTextbox;
-        private System.Windows.Forms.TextBox addressTwotextbox;
-        private System.Windows.Forms.TextBox cityTextbox;
-        private System.Windows.Forms.TextBox zipcodeTextBox;
-        private System.Windows.Forms.ComboBox stateComboBox;
+        private System.Windows.Forms.Label nameLbl;
+        private System.Windows.Forms.Label address1Lbl;
+        private System.Windows.Forms.Label cityLbl;
+        private System.Windows.Forms.Label stateLbl;
+        private System.Windows.Forms.Label zipLbl;
+        private System.Windows.Forms.TextBox nameTxt;
+        private System.Windows.Forms.TextBox address1Txt;
+        private System.Windows.Forms.TextBox address2Txt;
+        private System.Windows.Forms.TextBox cityTxt;
+        private System.Windows.Forms.ComboBox stateCbo;
+        private System.Windows.Forms.TextBox zipTxt;
+        private System.Windows.Forms.Button okBtn;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

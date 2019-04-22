@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace UPVApp
 {
+    [Serializable]
     public class UserParcelView
     {
+        
         // Namespace Accessible Data - Use with care
         internal List<Address> addresses; // List of addresses stored for this user
         internal List<Parcel> parcels;    // List of parcels for this user

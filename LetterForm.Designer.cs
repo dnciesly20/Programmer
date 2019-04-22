@@ -28,102 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.originComboBox = new System.Windows.Forms.ComboBox();
-            this.destinationComboBox = new System.Windows.Forms.ComboBox();
-            this.fixedCostTextBox = new System.Windows.Forms.TextBox();
-            this.oKButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.originLabel = new System.Windows.Forms.Label();
-            this.destinationLabel = new System.Windows.Forms.Label();
-            this.fixedCostLabel = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.originLbl = new System.Windows.Forms.Label();
+            this.destLbl = new System.Windows.Forms.Label();
+            this.originAddCbo = new System.Windows.Forms.ComboBox();
+            this.costLbl = new System.Windows.Forms.Label();
+            this.destAddCbo = new System.Windows.Forms.ComboBox();
+            this.fixedCostTxt = new System.Windows.Forms.TextBox();
+            this.okBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // originComboBox
+            // originLbl
             // 
-            this.originComboBox.FormattingEnabled = true;
-            this.originComboBox.Location = new System.Drawing.Point(243, 70);
-            this.originComboBox.Name = "originComboBox";
-            this.originComboBox.Size = new System.Drawing.Size(121, 28);
-            this.originComboBox.TabIndex = 0;
+            this.originLbl.AutoSize = true;
+            this.originLbl.Location = new System.Drawing.Point(39, 9);
+            this.originLbl.Name = "originLbl";
+            this.originLbl.Size = new System.Drawing.Size(78, 13);
+            this.originLbl.TabIndex = 0;
+            this.originLbl.Text = "Origin Address:";
             // 
-            // destinationComboBox
+            // destLbl
             // 
-            this.destinationComboBox.FormattingEnabled = true;
-            this.destinationComboBox.Location = new System.Drawing.Point(243, 146);
-            this.destinationComboBox.Name = "destinationComboBox";
-            this.destinationComboBox.Size = new System.Drawing.Size(121, 28);
-            this.destinationComboBox.TabIndex = 1;
+            this.destLbl.AutoSize = true;
+            this.destLbl.Location = new System.Drawing.Point(13, 42);
+            this.destLbl.Name = "destLbl";
+            this.destLbl.Size = new System.Drawing.Size(104, 13);
+            this.destLbl.TabIndex = 1;
+            this.destLbl.Text = "Destination Address:";
             // 
-            // fixedCostTextBox
+            // originAddCbo
             // 
-            this.fixedCostTextBox.AcceptsReturn = true;
-            this.fixedCostTextBox.Location = new System.Drawing.Point(243, 244);
-            this.fixedCostTextBox.Name = "fixedCostTextBox";
-            this.fixedCostTextBox.Size = new System.Drawing.Size(100, 26);
-            this.fixedCostTextBox.TabIndex = 2;
+            this.originAddCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.originAddCbo.FormattingEnabled = true;
+            this.originAddCbo.Location = new System.Drawing.Point(123, 6);
+            this.originAddCbo.Name = "originAddCbo";
+            this.originAddCbo.Size = new System.Drawing.Size(121, 21);
+            this.originAddCbo.TabIndex = 2;
+            this.originAddCbo.Validating += new System.ComponentModel.CancelEventHandler(this.addressCbo_Validating);
+            this.originAddCbo.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // oKButton
+            // costLbl
             // 
-            this.oKButton.Location = new System.Drawing.Point(57, 352);
-            this.oKButton.Name = "oKButton";
-            this.oKButton.Size = new System.Drawing.Size(92, 40);
-            this.oKButton.TabIndex = 3;
-            this.oKButton.Text = "OK";
-            this.oKButton.UseVisualStyleBackColor = true;
+            this.costLbl.AutoSize = true;
+            this.costLbl.Location = new System.Drawing.Point(58, 68);
+            this.costLbl.Name = "costLbl";
+            this.costLbl.Size = new System.Drawing.Size(59, 13);
+            this.costLbl.TabIndex = 3;
+            this.costLbl.Text = "Fixed Cost:";
             // 
-            // cancelButton
+            // destAddCbo
             // 
-            this.cancelButton.Location = new System.Drawing.Point(280, 352);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(84, 40);
-            this.cancelButton.TabIndex = 4;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cancelButton_MouseDown);
+            this.destAddCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.destAddCbo.FormattingEnabled = true;
+            this.destAddCbo.Location = new System.Drawing.Point(123, 39);
+            this.destAddCbo.Name = "destAddCbo";
+            this.destAddCbo.Size = new System.Drawing.Size(121, 21);
+            this.destAddCbo.TabIndex = 4;
+            this.destAddCbo.Validating += new System.ComponentModel.CancelEventHandler(this.addressCbo_Validating);
+            this.destAddCbo.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // originLabel
+            // fixedCostTxt
             // 
-            this.originLabel.AutoSize = true;
-            this.originLabel.Location = new System.Drawing.Point(65, 78);
-            this.originLabel.Name = "originLabel";
-            this.originLabel.Size = new System.Drawing.Size(117, 20);
-            this.originLabel.TabIndex = 5;
-            this.originLabel.Text = "Origin Address:";
+            this.fixedCostTxt.Location = new System.Drawing.Point(123, 65);
+            this.fixedCostTxt.Name = "fixedCostTxt";
+            this.fixedCostTxt.Size = new System.Drawing.Size(121, 20);
+            this.fixedCostTxt.TabIndex = 5;
+            this.fixedCostTxt.Validating += new System.ComponentModel.CancelEventHandler(this.fixedCostTxt_Validating);
+            this.fixedCostTxt.Validated += new System.EventHandler(this.AllFields_Validated);
             // 
-            // destinationLabel
+            // okBtn
             // 
-            this.destinationLabel.AutoSize = true;
-            this.destinationLabel.Location = new System.Drawing.Point(70, 149);
-            this.destinationLabel.Name = "destinationLabel";
-            this.destinationLabel.Size = new System.Drawing.Size(148, 20);
-            this.destinationLabel.TabIndex = 6;
-            this.destinationLabel.Text = "Destiation Address:";
+            this.okBtn.Location = new System.Drawing.Point(16, 109);
+            this.okBtn.Name = "okBtn";
+            this.okBtn.Size = new System.Drawing.Size(75, 23);
+            this.okBtn.TabIndex = 6;
+            this.okBtn.Text = "OK";
+            this.okBtn.UseVisualStyleBackColor = true;
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
-            // fixedCostLabel
+            // cancelBtn
             // 
-            this.fixedCostLabel.AutoSize = true;
-            this.fixedCostLabel.Location = new System.Drawing.Point(70, 244);
-            this.fixedCostLabel.Name = "fixedCostLabel";
-            this.fixedCostLabel.Size = new System.Drawing.Size(88, 20);
-            this.fixedCostLabel.TabIndex = 7;
-            this.fixedCostLabel.Text = "Fixed Cost:";
+            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelBtn.Location = new System.Drawing.Point(169, 109);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 7;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cancelBtn_MouseDown);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // LetterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AcceptButton = this.okBtn;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 450);
-            this.Controls.Add(this.fixedCostLabel);
-            this.Controls.Add(this.destinationLabel);
-            this.Controls.Add(this.originLabel);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.oKButton);
-            this.Controls.Add(this.fixedCostTextBox);
-            this.Controls.Add(this.destinationComboBox);
-            this.Controls.Add(this.originComboBox);
+            this.CancelButton = this.cancelBtn;
+            this.ClientSize = new System.Drawing.Size(264, 149);
+            this.Controls.Add(this.cancelBtn);
+            this.Controls.Add(this.okBtn);
+            this.Controls.Add(this.fixedCostTxt);
+            this.Controls.Add(this.destAddCbo);
+            this.Controls.Add(this.costLbl);
+            this.Controls.Add(this.originAddCbo);
+            this.Controls.Add(this.destLbl);
+            this.Controls.Add(this.originLbl);
             this.Name = "LetterForm";
-            this.Text = "LetterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Letter";
             this.Load += new System.EventHandler(this.LetterForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,13 +151,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox originComboBox;
-        private System.Windows.Forms.ComboBox destinationComboBox;
-        private System.Windows.Forms.TextBox fixedCostTextBox;
-        private System.Windows.Forms.Button oKButton;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Label originLabel;
-        private System.Windows.Forms.Label destinationLabel;
-        private System.Windows.Forms.Label fixedCostLabel;
+        private System.Windows.Forms.Label originLbl;
+        private System.Windows.Forms.Label destLbl;
+        private System.Windows.Forms.ComboBox originAddCbo;
+        private System.Windows.Forms.Label costLbl;
+        private System.Windows.Forms.ComboBox destAddCbo;
+        private System.Windows.Forms.TextBox fixedCostTxt;
+        private System.Windows.Forms.Button okBtn;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

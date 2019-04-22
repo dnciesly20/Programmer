@@ -1,112 +1,193 @@
-﻿using System;
+﻿// Program 2
+// CIS 200-01
+// Fall 2018
+// Due: 10/25/2018
+// By: Andrew L. Wright (Students use Grading ID)
+
+// File: LetterForm.cs
+// This class creates the Letter dialog box form GUI. It performs validation
+// and provides properties properties for each field.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UPVApp
 {
     public partial class LetterForm : Form
     {
-        protected List<Address> addressList;
+        public const int MIN_ADDRESSES = 2; // Minimum number of addresses needed
 
-        //A constant that shows the minimum number of addresses that we need
-        public const int MINIMUM_ADDRESSES = 4;
+        private List<Address> addressList;  // List of addresses used to fill combo boxes
 
-        //The letter form provides connects the method list and the address class
+        // Precondition:  addresses.Count >= MIN_ADDRESSES
+        // Postcondition: The form's GUI is prepared for display.
         public LetterForm(List<Address> addresses)
         {
-
             InitializeComponent();
+
             addressList = addresses;
         }
 
-        int TheOrginAddressIndex
+        internal int OriginAddressIndex
         {
-            //Get property is created
+            // Precondition:  User has selected from originAddCbo
+            // Postcondition: The index of the selected origin address returned
             get
             {
-                return originComboBox.SelectedIndex;
+                return originAddCbo.SelectedIndex;
             }
 
+            // Precondition:  -1 <= value < addressList.Count
+            // Postcondition: The specified index is selected in originAddCbo
             set
             {
-                //If a value is entered and itis less than he address count, it will be displayed in the combobox
                 if ((value >= -1) && (value < addressList.Count))
-                    originComboBox.SelectedIndex = value;
+                    originAddCbo.SelectedIndex = value;
                 else
-                    //Throws an exception if there isn't a valid value entered
-                    throw new ArgumentOutOfRangeException("There has to be a valid value entered");
+                    throw new ArgumentOutOfRangeException("OriginAddressIndex", value,
+                        "Index must be valid");
             }
-
         }
 
-          int TheDestinationAddressIndex
+        internal int DestinationAddressIndex
         {
-            //Get property is created
+            // Precondition:  User has selected from destAddCbo
+            // Postcondition: The index of the selected origin address returned
             get
             {
-                return destinationComboBox.SelectedIndex;
+                return destAddCbo.SelectedIndex;
             }
 
+            // Precondition:  -1 <= value < addressList.Count
+            // Postcondition: The specified index is selected in destAddCbo
             set
             {
-                //If a value is entered and itis less than he address count, it will be displayed in the combobox
                 if ((value >= -1) && (value < addressList.Count))
-                    destinationComboBox.SelectedIndex = value;
+                    destAddCbo.SelectedIndex = value;
                 else
-                    //Throws an exception if there isn't a valid value entered
-                    throw new ArgumentOutOfRangeException("There has to be a valid value entered");
+                    throw new ArgumentOutOfRangeException("DestinationAddressIndex", value,
+                        "Index must be valid");
             }
         }
 
-        //This repesents the fixed cost for the letters
-       internal string FixedCostText
+        internal string FixedCostText
         {
-
+            // Precondition:  None
+            // Postcondition: The text of form's fixed cost field is returned
             get
             {
-                return fixedCostTextBox.Text;
+                return fixedCostTxt.Text;
             }
-
+            // Precondition:  None
+            // Postcondition: The text of form's fixed cost field is set to specified value
             set
             {
-                fixedCostTextBox.Text = value;
+                fixedCostTxt.Text = value;
             }
-
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
+        // Precondition:  addressList.Count >= MIN_ADDRESSES
+        // Postcondition: The list of addresses is used to populate the
+        //                origin and destination address combo boxes
         private void LetterForm_Load(object sender, EventArgs e)
         {
-            // This counts the amount of addresses we have and it lets us know if we need more addresses to complete the letter
-            if (addressList.Count < MINIMUM_ADDRESSES)
+            if (addressList.Count < MIN_ADDRESSES) // Violated precondition!
             {
-                //This message box populates if we have an error
-                MessageBox.Show("There is an error with the addresses and it is needed to create the letter");
+                MessageBox.Show("Need " + MIN_ADDRESSES + " addresses to create letter!",
+                    "Addresses Error");
+                this.DialogResult = DialogResult.Abort; // Dismiss immediately
             }
             else
             {
-                // This a foreach loop that displays a condition for what each address does
                 foreach (Address a in addressList)
                 {
-                   originComboBox.Items.Add(a.Name);
-                    destinationComboBox.Items.Add(a.Name);
+                    originAddCbo.Items.Add(a.Name);
+                    destAddCbo.Items.Add(a.Name);
                 }
             }
         }
-        //The cancel button can be clicked to close out the file
-        private void cancelButton_MouseDown(object sender, MouseEventArgs e)
+
+        // Precondition:  Focus is shifting from fixedCostTxt
+        // Postcondition: If text is invalid, focus remains and error provider
+        //                highlights the field
+        private void fixedCostTxt_Validating(object sender, CancelEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            decimal fixedCost; // Cost of letter
+            bool valid = true; // Is text valid?
+
+            if (!decimal.TryParse(fixedCostTxt.Text, out fixedCost)) // Parse failed?
+                valid = false;
+            else if (fixedCost < 0)
+                valid = false;
+
+            if (!valid) // Invalid, so cancel and highlight field
+            {
+                e.Cancel = true;
+                fixedCostTxt.SelectAll();
+                errorProvider.SetError(fixedCostTxt, "Invalid cost! Enter an amount.");
+            }
+        }
+
+        // Precondition:  Focus shifting from one of the address combo boxes
+        //                sender is ComboBox
+        // Postcondition: If no address selected, focus remains and error provider
+        //                highlights the field
+        private void addressCbo_Validating(object sender, CancelEventArgs e)
+        {
+            // Downcast to sender as ComboBox, so make sure you obey precondition!
+            ComboBox cbo = sender as ComboBox; // Cast sender as combo box
+
+            if (cbo.SelectedIndex == -1) // -1 means no item selected
+            {
+                e.Cancel = true;
+                errorProvider.SetError(cbo, "Must select an address");
+            }
+            else if (originAddCbo.SelectedIndex != -1 && destAddCbo.SelectedIndex == originAddCbo.SelectedIndex)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(cbo, "Must select different addresses");
+            }
+        }
+
+        // Precondition:  Validating of sender not cancelled, so data OK
+        //                sender is Control
+        // Postcondition: Error provider cleared and focus allowed to change
+        private void AllFields_Validated(object sender, EventArgs e)
+        {
+            // Downcast to sender as Control, so make sure you obey precondition!
+            Control control = sender as Control; // Cast sender as Control
+                                                 // Should always be a Control
+            errorProvider.SetError(control, "");
+        }
+
+
+        // Precondition:  User pressed on cancelBtn
+        // Postcondition: Form closes
+        private void cancelBtn_MouseDown(object sender, MouseEventArgs e)
+        {
+            // This handler uses MouseDown instead of Click event because
+            // Click won't be allowed if other field's validation fails
+
+            if (e.Button == MouseButtons.Left) // Was it a left-click?
                 this.DialogResult = DialogResult.Cancel;
+        }
+
+        // Precondition:  User clicked on okBtn
+        // Postcondition: If invalid field on dialog, keep form open and give first invalid
+        //                field the focus. Else return OK and close form.
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            // The easy way
+            // Raise validating event for all enabled controls on form
+            // If all pass, ValidateChildren() will be true
+            if (ValidateChildren())
+                this.DialogResult = DialogResult.OK;
         }
     }
 }
