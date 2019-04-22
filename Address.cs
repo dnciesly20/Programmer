@@ -1,12 +1,10 @@
-﻿// Program 0
+﻿// Program 1B
 // CIS 200-01
 // Fall 2018
-// Due: 9/10/2017
-// By: Andrew L. Wright (students use Grading ID)
+// Due: 10/3/2018
+// By: Grading ID3100
 
-// File: Address.cs
-// This classes stores a typical US address consisting of name,
-// two address lines, city, state, and 5 digit zip code.
+//This program is using LINQ to create a simple list of reports. We created different test address and package
 
 using System;
 using System.Collections.Generic;

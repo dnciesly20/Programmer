@@ -1,42 +1,55 @@
-﻿using System;
+﻿// Program 1A
+// CIS 200-01
+// Fall 2018
+// Due: 10/3/2018
+// By: Grading ID3100
+
+//This program is using LINQ to create a simple list of reports. We created different test address and package
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 public abstract class AirPackage : Package
 {
-    //Created set real number values for the dimensions of our packages
-    public const double HEAVY_WEIGHT = 75;
-    public const double LARGER_WEIGHT = 100;
+    public const double HEAVY_THRESHOLD = 75;  // Min weight of heavy package
+    public const double LARGE_THRESHOLD = 100; // Min dimensions of large package
 
-    //Created specific values for all the dimesnions and fee
-    public AirPackage(Address originAddress, Address destinAddress, double tLength, double tWidth, double tHeight, double tWeight)
-        :base(originAddress, destinAddress, tLength, tWidth, tHeight, tWeight)
-
+    // Precondition:  pLength > 0, pWidth > 0, pHeight > 0,
+    //                pWeight > 0
+    // Postcondition: The air package is created with the specified values for
+    //                origin address, destination address, length, width,
+    //                height, and weight
+    public AirPackage(Address originAddress, Address destAddress,
+        double pLength, double pWidth, double pHeight, double pWeight)
+        : base(originAddress, destAddress, pLength, pWidth, pHeight, pWeight)
     {
-
+        // All work done in base class constructor
     }
 
-    //A boolean value created to determine if the the value is heavy or large
-    public bool IsHeavy() 
+    // Precondition:  None
+    // Postcondition: Returns true if air package is considered heavy
+    //                else returns false
+    public bool IsHeavy()
     {
-        return (Weight >= HEAVY_WEIGHT);
+        return (Weight >= HEAVY_THRESHOLD);
     }
-   
-    //A boolean value created to determine if the the value is heavy or large
+
+    // Precondition:  None
+    // Postcondition: Returns true if air package is considered large
+    //                else returns false
     public bool IsLarge()
     {
-        return (OverallCapacity >= LARGER_WEIGHT);
+        return (TotalDimension >= LARGE_THRESHOLD);
     }
 
-    //Create a too string mehtod to display our final  information
+    // Precondition:  None
+    // Postcondition: A String with the air package's data has been returned
     public override string ToString()
-    
     {
-        string NL = Environment.NewLine; 
+        string NL = Environment.NewLine; // Newline shorthand
 
-        return $"AirPackage{base.ToString()}{NL}Heavy: {IsHeavy()}{NL}Large: {IsLarge()}";
+        return $"Air{base.ToString()}{NL}Heavy: {IsHeavy()}{NL}Large: {IsLarge()}";
     }
 }
-
