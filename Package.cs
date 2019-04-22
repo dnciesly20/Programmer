@@ -1,4 +1,4 @@
-﻿// Program 1B
+﻿// Program 1A
 // CIS 200-01
 // Fall 2018
 // Due: 9/24/2018

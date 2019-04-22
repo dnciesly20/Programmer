@@ -1,10 +1,12 @@
-﻿// Program 1B
+﻿// Program 1A
 // CIS 200-01
 // Fall 2018
-// Due: 10/3/2018
-// By: Grading ID3100
+// Due: 9/24/2018
+// By: Andrew L. Wright (students use Grading ID)
 
-//This program is using LINQ to create a simple list of reports. We created different test address and package
+// File: NextDayAirPackage.cs
+// The NextDayAirPackage class is a concrete derived class from AirPackage. It adds
+// an express fee.
 
 using System;
 using System.Collections.Generic;
